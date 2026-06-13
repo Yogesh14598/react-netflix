@@ -20,10 +20,8 @@ function UserMovieSection(props) {
   const { showModal, setShowModal } = useContext(PopUpContext);
 
   const { addToMyList, removeFromMyList, PopupMessage } = useUpdateMylist();
-  const { removeFromWatchedMovies } =
-    useUpdateWatchedMovies();
-  const { addToLikedMovies, removeFromLikedMovies } =
-    useUpdateLikedMovies();
+  const { removeFromWatchedMovies } = useUpdateWatchedMovies();
+  const { addToLikedMovies, removeFromLikedMovies } = useUpdateLikedMovies();
   const { playMovie } = usePlayMovie();
   const { convertGenere } = useGenereConverter();
 
@@ -83,11 +81,11 @@ function UserMovieSection(props) {
 
       <div className="grid-cols-2 grid p-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-5 space-y-1 lg:space-y-0 lg:grid lg:gap-3 lg:grid-rows-3">
         {myMovies.length !== 0 ? (
-              myMovies
+          myMovies
             .slice(0)
             .reverse()
             .map((movie, idx) => {
-              let converted
+              let converted;
               if (movie.genre_ids) {
                 converted = convertGenere(movie.genre_ids);
               }
@@ -261,7 +259,10 @@ function UserMovieSection(props) {
                         {converted &&
                           converted.map((genre, idx2) => {
                             return (
-                              <span key={idx2} className="text-white mr-4 text-xs  2xl:text-sm font-thin">
+                              <span
+                                key={idx2}
+                                className="text-white mr-4 text-xs  2xl:text-sm font-thin"
+                              >
                                 {genre}
                               </span>
                             );
