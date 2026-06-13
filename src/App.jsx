@@ -1,4 +1,4 @@
-import { useEffect, useContext, lazy, Suspense } from "react";
+import { useEffect, useContext, lazy, Suspense, useState } from "react";
 import "./App.css";
 
 const Home = lazy(() => import("./Pages/Home"));
@@ -14,7 +14,7 @@ const Play = lazy(() => import("./Pages/Play"));
 const LikedMovies = lazy(() => import("./Pages/LikedMovies"));
 const History = lazy(() => import("./Pages/History"));
 
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { AuthContext } from "./Context/UserContext";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Loading from "./componets/Loading/Loading";
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div>
-      {User ? <Navbar/> : <NavbarWithoutUser/>}
+      {User ? <Navbar /> : <NavbarWithoutUser />}
       <Suspense replace fallback={<Loading />}>
         <Routes>
           <Route index path="/" element={User ? <Home /> : <Welcome />} />

@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import MoviePopUp from "../PopUp/MoviePopUp";
@@ -87,30 +86,29 @@ function UserMovieSection(props) {
           myMovies
             .slice(0)
             .reverse()
-            .map((movie) => {
-              let converted
+            .map((movie, idx) => {
+              let converted;
               if (movie.genre_ids) {
                 converted = convertGenere(movie.genre_ids);
               }
               return (
-                <div className="p-1 mt-2 mb-5">
-                  <div 
-                     class="hover:border-2 hover:scale-105 group relative block overflow-hidden rounded-sm transition-all duration-500"
-                     onClick={() => handleMoviePopup(movie)}
+                <div key={idx} className="p-1 mt-2 mb-5">
+                  <div
+                    className="hover:border-2 hover:scale-105 group relative block overflow-hidden rounded-sm transition-all duration-500"
+                    onClick={() => handleMoviePopup(movie)}
                   >
-    
-                      <img
-                        onClick={() => handleMoviePopup(movie)}
-                        className=""
-                        src={imageUrl2 + movie.backdrop_path}
-                      />
-                    
+                    <img
+                      onClick={() => handleMoviePopup(movie)}
+                      className=""
+                      src={imageUrl2 + movie.backdrop_path}
+                    />
+
                     <div
                       style={{
                         background:
                           "linear-gradient(0deg, hsl(0deg 0% 4% / 92%) 0%, hsl(0deg 0% 0% / 50%) 35%, hsl(220deg 26% 44% / 0%) 100%)",
                       }}
-                      class="hidden xl:block absolute -bottom-52 group-hover:bottom-0 w-full transition-all duration-500 p-4 rounded"
+                      className="hidden xl:block absolute -bottom-52 group-hover:bottom-0 w-full transition-all duration-500 p-4 rounded"
                     >
                       <div className="flex mb-1 transition ease-in-out delay-150">
                         {/* Play Button */}
@@ -246,7 +244,7 @@ function UserMovieSection(props) {
                         </div>
                       </div>
 
-                      <a class="hover:text-primary-600 text-shadow-xl shadow-red-700 text-white text-base 2xl:text-2xl transition duration-500 font-medium">
+                      <a className="hover:text-primary-600 text-shadow-xl shadow-red-700 text-white text-base 2xl:text-2xl transition duration-500 font-medium">
                         {movie.name || movie.title}
                       </a>
 
@@ -261,9 +259,12 @@ function UserMovieSection(props) {
                       <br></br>
                       <div className="mt-1">
                         {converted &&
-                          converted.map((genre) => {
+                          converted.map((genre, idx2) => {
                             return (
-                              <span className="text-white mr-4 text-xs  2xl:text-sm font-thin">
+                              <span
+                                key={idx2}
+                                className="text-white mr-4 text-xs  2xl:text-sm font-thin"
+                              >
                                 {genre}
                               </span>
                             );

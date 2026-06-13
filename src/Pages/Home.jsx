@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState, useContext } from "react";
 import Banner from "../componets/Banner/Banner";
 import Footer from "../componets/Footer/Footer";

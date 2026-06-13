@@ -1,10 +1,8 @@
-import React from "react";
 import { useEffect, useState } from "react";
-
 import axios from "../../axios";
 import { imageUrl, imageUrl2, API_KEY } from "../../Constants/Constance";
 import useUpdateMylist from "../../CustomHooks/useUpdateMylist";
-import { Fade } from "react-reveal";
+import Fade from "../Fade/Fade";
 import YouTube from "react-youtube";
 import StarRatings from "react-star-ratings";
 
@@ -14,7 +12,7 @@ import useUpdateLikedMovies from "../../CustomHooks/useUpdateLikedMovies";
 import useGenereConverter from "../../CustomHooks/useGenereConverter";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -118,6 +116,7 @@ function RowPost(props) {
               const converted = convertGenere(obj.genre_ids);
               return (
                 <SwiperSlide
+                  key={index}
                   className={props.islarge ? "large" : "bg-cover"}
                   onClick={() => handleMoviePopup(obj)}
                 >
@@ -282,9 +281,12 @@ function RowPost(props) {
                       </div>
 
                       {converted &&
-                        converted.map((genre) => {
+                        converted.map((genre, idx) => {
                           return (
-                            <span className="hidden text-white ml-4 font-thin text-xs lg:inline">
+                            <span
+                              key={idx}
+                              className="hidden text-white ml-4 font-thin text-xs lg:inline"
+                            >
                               {genre}
                             </span>
                           );
@@ -306,15 +308,12 @@ function RowPost(props) {
       )}
 
       <>
-        {/* Movie Pop Up section */}
         {showModal && (
           <>
             <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-auto mt-24 sm:my-6 mx-4 max-w-3xl">
-                {/*content*/}
                 <Fade bottom duration={500}>
                   <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-neutral-800 outline-none focus:outline-none">
-                    {/*header*/}
                     <button
                       className="group p-1 ml-2 mt-2 backdrop-blur-[20px] bg-transparent border-2 border-white hover:bg-white hover:text-black fixed right-4 rounded-full cursor-pointer float-right font-semibold outline-none focus:outline-none ease-linear transition-all duration-150"
                       onClick={() => setShowModal(false)}
@@ -334,7 +333,6 @@ function RowPost(props) {
                         />
                       </svg>
                     </button>
-                    {/*Movie Trailer or Image*/}
                     {urlId ? (
                       <YouTube
                         opts={opts}
@@ -371,7 +369,7 @@ function RowPost(props) {
                         onClick={() => {
                           addToMyList(moviePopupInfo);
                         }}
-                        className="group text-white w-10 h-10 border-[2px] rounded-full p-2 mr-3  backdrop-blur-[1px] hover:bg-white hover:text-black shadow-md cursor-pointer ease-linear transition-all duration-150 "
+                        className="group text-white w-10 h-10 border-[2px] rounded-full p-2 mr-3  backdrop-blur-[1px] hover:bg-white hover:text-black shadow-md cursor-pointer ease-linear transition-all duration-150"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -417,7 +415,6 @@ function RowPost(props) {
                         </h1>
                       </div>
                     </Fade>
-                    {/*body*/}
                     <Fade bottom>
                       <div className="relative p-4 sm:p-6 flex-auto">
                         <div className="bg-neutral-700 h-[0.15rem]"></div>
@@ -427,9 +424,7 @@ function RowPost(props) {
                         <div className="bg-neutral-700 h-[0.15rem]"></div>
                       </div>
                     </Fade>
-                    {/*footer*/}
                     <div className="sm:flex items-center justify-end p-2 rounded-b">
-                      {/*More Info*/}
                       <Fade bottom>
                         <div className="relative p-2 py-5 sm:p-6 flex-auto">
                           <h1 className="flex -mt-4 text-neutral-400 text-sm leading-relaxed">
@@ -458,22 +453,23 @@ function RowPost(props) {
                               {moviePopupInfo.original_language}
                             </p>
                           </h1>
-
                           <h1 className="flex text-neutral-400 text-sm leading-relaxed">
                             Genere :
-                            {convertGenere(moviePopupInfo.genre_ids).slice(0,2).map(
-                              (genere) => {
+                            {convertGenere(moviePopupInfo.genre_ids)
+                              .slice(0, 2)
+                              .map((genere, idx) => {
                                 return (
-                                  <span className="text-white ml-2 font-medium">
+                                  <span
+                                    key={idx}
+                                    className="text-white ml-2 font-medium"
+                                  >
                                     {genere}
                                   </span>
                                 );
-                              }
-                            )}
+                              })}
                           </h1>
                         </div>
                       </Fade>
-
                       <div className="flex justify-between p-2">
                         <button
                           className="group flex items-center justify-center border-[0.7px] border-white text-white font-medium sm:font-bold text-xs px-4 mr-4 sm:px-6 md:text-sm  py-3 rounded shadow hover:shadow-lg hover:bg-white hover:text-red-700 outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
@@ -496,7 +492,6 @@ function RowPost(props) {
                           </svg>
                           Add to MyList
                         </button>
-
                         <button
                           className="flex items-center text-red-500 background-transparent font-medium sm:font-bold uppercase px-2 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                           type="button"

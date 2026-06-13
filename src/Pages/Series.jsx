@@ -1,4 +1,3 @@
-import React from "react";
 import Banner from "../componets/Banner/Banner";
 import Footer from "../componets/Footer/Footer";
 import RowPost from "../componets/RowPost/RowPost";

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-
 import { Transition } from "@headlessui/react";
-import { Fade } from "react-reveal";
+import Fade from "../Fade/Fade";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import { AuthContext } from "../../Context/UserContext";
@@ -169,7 +168,7 @@ function Navbar(props) {
                         alt="NETFLIX"
                       />
                     </Link>
-                    <ul class="absolute hidden text-white pt-1 -ml-32 group-hover:block transition ease-in-out delay-150">
+                    <ul className="absolute hidden text-white pt-1 -ml-32 group-hover:block transition ease-in-out delay-150">
                       <li>
                         <Link
                           to={"/profile"}
@@ -257,54 +256,52 @@ function Navbar(props) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            {(ref) => (
-              <div className="md:hidden" id="mobile-menu">
-                <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <Link to={"/"}>
-                    <a className="block px-3 py-2 text-base font-medium text-white rounded-md hover:bg-red-800">
-                      Home
-                    </a>
-                  </Link>
-
-                  <Link to={"/series"}>
-                    <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
-                      TV-Series
-                    </a>
-                  </Link>
-
-                  <Link to={"/history"}>
-                    <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
-                      History
-                    </a>
-                  </Link>
-
-                  <Link to={"/liked"}>
-                    <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
-                      Liked
-                    </a>
-                  </Link>
-
-                  <Link to={"/mylist"}>
-                    <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
-                      My-List
-                    </a>
-                  </Link>
-
-                  <Link to={"/signin"}>
-                    <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
-                      Add another user
-                    </a>
-                  </Link>
-
-                  <a
-                    onClick={SignOut}
-                    className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white"
-                  >
-                    Sign Out
+            <div className="md:hidden" id="mobile-menu">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <Link to={"/"}>
+                  <a className="block px-3 py-2 text-base font-medium text-white rounded-md hover:bg-red-800">
+                    Home
                   </a>
-                </div>
+                </Link>
+
+                <Link to={"/series"}>
+                  <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
+                    TV-Series
+                  </a>
+                </Link>
+
+                <Link to={"/history"}>
+                  <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
+                    History
+                  </a>
+                </Link>
+
+                <Link to={"/liked"}>
+                  <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
+                    Liked
+                  </a>
+                </Link>
+
+                <Link to={"/mylist"}>
+                  <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
+                    My-List
+                  </a>
+                </Link>
+
+                <Link to={"/signin"}>
+                  <a className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white">
+                    Add another user
+                  </a>
+                </Link>
+
+                <a
+                  onClick={SignOut}
+                  className="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-red-800 hover:text-white"
+                >
+                  Sign Out
+                </a>
               </div>
-            )}
+            </div>
           </Transition>
         </nav>
       </header>

@@ -1,4 +1,3 @@
-import React from "react";
 import UserMovieSection from "../componets/UserMovieSection/UserMovieSection";
 
 function MyList() {

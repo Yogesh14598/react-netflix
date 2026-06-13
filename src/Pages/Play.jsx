@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import axios from "../axios";
@@ -105,7 +105,7 @@ function Play() {
             width="100%"
             style={{ height: "inherit" }}
             src={`//www.youtube.com/embed/${urlId.key}?modestbranding=1&autoplay=1`}
-            frameborder="0"
+            frameBorder="0"
             allow="autoplay fullscreen"
             allowFullScreen
           ></iframe>
@@ -156,11 +156,11 @@ function Play() {
                 <h1 className="text-red-700">
                   Geners :{" "}
                   {movieDetails.genres &&
-                    movieDetails.genres.map((gener) => {
+                    movieDetails.genres.map((gener, idx) => {
                       return (
-                        <>
-                          <span className="text-white ml-2">{gener.name}</span>
-                        </>
+                        <span key={idx} className="text-white ml-2">
+                          {gener.name}
+                        </span>
                       );
                     })}
                 </h1>
@@ -292,13 +292,11 @@ function Play() {
                   <h1 className="text-red-700 text-sm leading-7 sm:text-lg sm:leading-9 lg:text-2xl lg:leading-10">
                     Geners :{" "}
                     {movieDetails.genres &&
-                      movieDetails.genres.slice(0, 2).map((gener) => {
+                      movieDetails.genres.slice(0, 2).map((gener, idx) => {
                         return (
-                          <>
-                            <span className="text-white ml-2">
-                              {gener.name}
-                            </span>
-                          </>
+                          <span key={idx} className="text-white ml-2">
+                            {gener.name}
+                          </span>
                         );
                       })}
                   </h1>
@@ -374,9 +372,9 @@ function Play() {
                   </h1>
                   <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
                     {similarMovies &&
-                      similarMovies.map((similarMovie) => {
+                      similarMovies.map((similarMovie, idx) => {
                         return (
-                          <div class="max-w-sm shadow mb-4">
+                          <div key={idx} className="max-w-sm shadow mb-4">
                             <img
                               src={
                                 similarMovie.backdrop_path
@@ -390,8 +388,8 @@ function Play() {
                                 window.location.reload(true);
                               }}
                             />
-                            <div class="p-1">
-                              <h5 class="mt-1 mb-2 text-xl sm:text-2xl font-bold tracking-tight text-white dark:text-white">
+                            <div className="p-1">
+                              <h5 className="mt-1 mb-2 text-xl sm:text-2xl font-bold tracking-tight text-white dark:text-white">
                                 {similarMovie.original_title ||
                                   similarMovie.title}
                               </h5>
@@ -433,7 +431,7 @@ function Play() {
                                   </svg>
                                 </div>
                               </div>
-                              <p class="mb-3 font-normal text-stone-400 line-clamp-3 text-xs sm:text-base">
+                              <p className="mb-3 font-normal text-stone-400 line-clamp-3 text-xs sm:text-base">
                                 {similarMovie.overview}
                               </p>
                             </div>

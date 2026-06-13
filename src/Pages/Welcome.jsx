@@ -1,15 +1,12 @@
-import React from "react";
 import { useEffect } from "react";
-
 import Footer from "../componets/Footer/Footer";
-
 import WelcomePageImage1 from "../images/WelcomePageImage1.png";
 import WelcomePageImage2 from "../images/WelcomePageImage2.png";
 import WelcomePageImage3 from "../images/WelcomePageImage3.png";
 import WelcomePageImage4 from "../images/WelcomePageImage4.png";
 import WelcomePageBanner from "../images/WelcomePageBanner.jpg";
 
-import { Fade } from "react-reveal";
+import Fade from "../componets/Fade/Fade";
 import { Link } from "react-router-dom";
 
 function Welcome() {

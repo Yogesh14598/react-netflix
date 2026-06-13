@@ -1,8 +1,6 @@
-import React from "react";
 import { useState, useContext } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
-import { Fade } from "react-reveal";
+import Fade from "../componets/Fade/Fade";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -103,7 +101,7 @@ function SignUp() {
                 >
                   <div>
                     <label
-                      for="email"
+                      htmlFor="email"
                       className="block mb-2 text-sm font-medium text-white dark:text-white"
                     >
                       Your email
@@ -124,7 +122,7 @@ function SignUp() {
                   </div>
                   <div>
                     <label
-                      for="password"
+                      htmlFor="password"
                       className="block mb-2 text-sm font-medium text-white dark:text-white"
                     >
                       Password
@@ -177,7 +175,7 @@ function SignUp() {
                         ></input>
                       </div>
                       <div className="ml-3 text-sm">
-                        <label for="remember" className="text-gray-500">
+                        <label htmlFor="remember" className="text-gray-500">
                           Remember me
                         </label>
                       </div>

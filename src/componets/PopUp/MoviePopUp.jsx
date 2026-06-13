@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Fade } from "react-reveal";
+import { useState, useEffect, useContext } from "react";
+import Fade from "../Fade/Fade";
 import StarRatings from "react-star-ratings";
 import { imageUrl } from "../../Constants/Constance";
 import { PopUpContext } from "../../Context/moviePopUpContext";
@@ -12,9 +12,8 @@ import useUpdateWatchedMovies from "../../CustomHooks/useUpdateWatchedMovies";
 function MoviePopUp(props) {
   const { showModal, setShowModal } = useContext(PopUpContext);
   const { addToMyList, removeFromMyList, PopupMessage } = useUpdateMylist();
-  const { addToLikedMovies, removeFromLikedMovies, LikedMoviePopupMessage } = useUpdateLikedMovies();
-  const { removeFromWatchedMovies, removePopupMessage } =
-    useUpdateWatchedMovies();
+  const { addToLikedMovies, removeFromLikedMovies } = useUpdateLikedMovies();
+  const { removeFromWatchedMovies } = useUpdateWatchedMovies();
   const { playMovie } = usePlayMovie();
   const { convertGenere } = useGenereConverter();
 
@@ -179,13 +178,18 @@ function MoviePopUp(props) {
                         <h1 className="flex text-neutral-400 text-sm leading-relaxed">
                           Genere :
                           {PopupInfo.genre_ids &&
-                            convertGenere(PopupInfo.genre_ids).map((genere) => {
-                              return (
-                                <span className="text-white ml-2 font-medium">
-                                  {genere}
-                                </span>
-                              );
-                            })}
+                            convertGenere(PopupInfo.genre_ids).map(
+                              (genere, idx) => {
+                                return (
+                                  <span
+                                    key={idx}
+                                    className="text-white ml-2 font-medium"
+                                  >
+                                    {genere}
+                                  </span>
+                                );
+                              }
+                            )}
                         </h1>
                       </div>
                     </Fade>
