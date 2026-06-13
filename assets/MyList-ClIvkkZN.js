@@ -1,0 +1,1 @@
+import{c as e}from"./dist-CWmxL98P.js";import{t}from"./UserMovieSection-DJ55i1Uh.js";var n=e();function r(){return(0,n.jsx)(t,{from:`MyList`})}export{r as default};
