@@ -7,7 +7,7 @@ import MoviePopUp from "../componets/PopUp/MoviePopUp";
 import usePlayMovie from "../CustomHooks/usePlayMovie";
 import useUpdateLikedMovies from "../CustomHooks/useUpdateLikedMovies";
 import useGenereConverter from "../CustomHooks/useGenereConverter";
-import StarRatings from "react-star-ratings";
+import StarRatings from "../componets/StarRating/StarRating.jsx";
 
 function Search() {
   const { showModal, setShowModal } = useContext(PopUpContext);

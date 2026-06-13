@@ -12,7 +12,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { AuthContext } from "../../Context/UserContext";
 import { PopUpContext } from "../../Context/moviePopUpContext";
 import axios from "../../axios";
-import StarRatings from "react-star-ratings";
+import StarRatings from "../StarRating/StarRating.jsx";
 import { ClipLoader } from "react-spinners";
 
 function UserMovieSection(props) {

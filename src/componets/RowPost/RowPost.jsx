@@ -4,7 +4,7 @@ import { imageUrl, imageUrl2, API_KEY } from "../../Constants/Constance";
 import useUpdateMylist from "../../CustomHooks/useUpdateMylist";
 import Fade from "../Fade/Fade.jsx";
 import YouTube from "react-youtube";
-import StarRatings from "react-star-ratings";
+import StarRatings from "../StarRating/StarRating.jsx";
 
 import usePlayMovie from "../../CustomHooks/usePlayMovie";
 import useUpdateWatchedMovies from "../../CustomHooks/useUpdateWatchedMovies";

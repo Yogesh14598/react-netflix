@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import Fade from "../Fade/Fade.jsx";
-import StarRatings from "react-star-ratings";
+import StarRatings from "../StarRating/StarRating.jsx";
 import { imageUrl } from "../../Constants/Constance";
 import { PopUpContext } from "../../Context/moviePopUpContext";
 import useUpdateMylist from "../../CustomHooks/useUpdateMylist";

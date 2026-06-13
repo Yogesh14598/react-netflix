@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import StarRatings from "react-star-ratings";
+import StarRatings from "../componets/StarRating/StarRating.jsx";
 import axios from "../axios";
 import { API_KEY, imageUrl, imageUrl2 } from "../Constants/Constance";
 
