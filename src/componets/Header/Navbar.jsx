@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Transition } from "@headlessui/react";
-import Fade from "../Fade/Fade";
+import Fade from "../Fade/Fade.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import { AuthContext } from "../../Context/UserContext";

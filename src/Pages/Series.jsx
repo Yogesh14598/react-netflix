@@ -1,4 +1,4 @@
-import Banner from "../componets/Banner/Banner";
+import Banner from "../componets/Banner/Banner.jsx";
 import Footer from "../componets/Footer/Footer";
 import RowPost from "../componets/RowPost/RowPost";
 import {

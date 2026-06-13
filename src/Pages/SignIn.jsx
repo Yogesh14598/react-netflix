@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Fade from "../componets/Fade/Fade";
+import Fade from "../componets/Fade/Fade.jsx";
 import { ClipLoader } from "react-spinners";
 import {
   getAuth,

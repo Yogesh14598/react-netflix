@@ -6,7 +6,7 @@ import WelcomePageImage3 from "../images/WelcomePageImage3.png";
 import WelcomePageImage4 from "../images/WelcomePageImage4.png";
 import WelcomePageBanner from "../images/WelcomePageBanner.jpg";
 
-import Fade from "../componets/Fade/Fade";
+import Fade from "../componets/Fade/Fade.jsx";
 import { Link } from "react-router-dom";
 
 function Welcome() {
