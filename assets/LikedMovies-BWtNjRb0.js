@@ -1,0 +1,1 @@
+import{c as e}from"./dist-CWmxL98P.js";import{t}from"./UserMovieSection-8OqAXIr5.js";var n=e();function r(){return(0,n.jsx)(t,{from:`LikedMovies`})}export{r as default};
